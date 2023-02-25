@@ -10,17 +10,22 @@ const homeRouter = require("./routers/home.route");
 
 // create express server
 const app = express();
-// app.use(cors());
+app.use(
+    cors({
+        origin: "*",
+        credentials: false,
+    })
+);
 // Add middleware to set the CORS headers
-app.use((req, res, next) => {
-    // Allow requests from the universal domain
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    // Allow the GET and POST methods
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-    // Allow the Content-Type header
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    next();
-});
+// app.use((req, res, next) => {
+//     // Allow requests from the universal domain
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     // Allow the GET and POST methods
+//     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+//     // Allow the Content-Type header
+//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//     next();
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
