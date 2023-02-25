@@ -22,7 +22,7 @@ const sentEmailAndCreateRecipient = async (req, res) => {
             from: adminEmail,
             to: recipient,
             subject: subject,
-            html: `<p>${message}</p><img src=${trackingUrl} style="width: 1px; height: 1px"/>`,
+            html: `<p>${message}</p><img src=${trackingUrl} width="1px" height="1px"/>`,
         };
         await transporter.sendMail(mailOptions);
 
@@ -56,10 +56,12 @@ const isOpen = async (req, res) => {
         // to restore the user to mongoDB
         await recipient.save();
         console.log(recipient);
-        res.status(200);
+        res.status(200).send({ message: "update" });
     } catch (error) {
         // console.log(error.message);
-        res.status(500);
+        res.status(500).send({
+            error: "error",
+        });
     }
 };
 

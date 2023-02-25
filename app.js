@@ -10,12 +10,13 @@ const homeRouter = require("./routers/home.route");
 
 // create express server
 const app = express();
-app.use(
-    cors({
-        origin: "*",
-        credentials: false,
-    })
-);
+app.use(cors());
+// app.use(
+//     cors({
+//         origin: "*",
+//         credentials: false,
+//     })
+// );
 // Add middleware to set the CORS headers
 // app.use((req, res, next) => {
 //     // Allow requests from the universal domain
