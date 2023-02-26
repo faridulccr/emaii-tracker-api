@@ -16,7 +16,7 @@ RUN npm install
 
 
 # Expose port 3000 
-EXPOSE 3000
+EXPOSE 8080/tcp
 
 
 # Define the entry point for the container
