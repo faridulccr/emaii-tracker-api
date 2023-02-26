@@ -2,7 +2,7 @@
 FROM node:19.6.1
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /email-tracking-api
 
 
 # Copy the package.json and package-lock.json files
