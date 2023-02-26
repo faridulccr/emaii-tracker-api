@@ -1,12 +1,12 @@
 # Use the official Node.js image as the base image
-FROM node:19.6.1
+FROM node
 
 # Set the working directory in the container
 RUN mkdir /app
 WORKDIR /app
 
 # Copy the package.json and package-lock.json files
-COPY ["package.json", "package-lock.json*", "./"]
+COPY ["package.json", "package-lock.json*", "./app"]
 
 # Install the application dependencies
 RUN npm install --production
