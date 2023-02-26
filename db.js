@@ -1,5 +1,6 @@
 // Dependencies
 const mongoose = require("mongoose");
+mongoose.set("strictQuery", true);
 const dbURL = process.env.DB_URL;
 
 // connect application to mongoDB service
