@@ -10,7 +10,12 @@ const homeRouter = require("./routers/home.route");
 
 // create express server
 const app = express();
-app.use(cors());
+app.use(
+    cors({
+        origin: "*",
+        credentials: false,
+    })
+);
 // app.use(
 //     cors({
 //         origin: "*",
