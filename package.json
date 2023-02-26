@@ -1,5 +1,5 @@
 {
-    "name": "email-tracking-node",
+    "name": "email-tracking-api",
     "version": "1.0.0",
     "description": "it is an email tracking api using node js",
     "main": "index.js",

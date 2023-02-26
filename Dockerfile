@@ -1,19 +1,20 @@
 # Use the official Node.js image as the base image
-FROM node:lts-alpine
+FROM node:19.6.1
 
 # Set the working directory in the container
-WORKDIR /email-tracking-api
+WORKDIR /app
 
 # Copy the application files into the working directory
 # Copy the package.json and package-lock.json files
 COPY package*.json ./
+COPY . .
 
 # Install the application dependencies
 RUN npm install
 
 # Expose port 8080 for TCP traffic
-# Expose port 3000
-EXPOSE 8080/tcp
+EXPOSE 8080
+
 
 # Define the entry point for the container
 CMD ["npm", "start"]
