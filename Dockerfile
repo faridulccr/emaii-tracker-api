@@ -2,10 +2,11 @@
 FROM node:lts-alpine
 
 # Set the working directory in the container
-WORKDIR .
+WORKDIR /emaii-tracker-api
 
 # Copy the application files into the working directory
-COPY . .
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
 
 # Install the application dependencies
 RUN npm install
