@@ -1,11 +1,11 @@
 # Use the official Node.js image as the base image
-FROM node:19
+FROM node:lts-alpine
 
 # Set the working directory in the container
-WORKDIR /emaii-tracker-api
+WORKDIR .
 
 # Copy the application files into the working directory
-COPY . /emaii-tracker-api
+COPY .
 
 # Install the application dependencies
 RUN npm install
