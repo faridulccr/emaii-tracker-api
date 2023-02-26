@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the application files into the working directory
 # Copy the package.json and package-lock.json files
 COPY package*.json ./
-COPY . .
+#COPY . .
 
 # Install the application dependencies
 RUN npm install
