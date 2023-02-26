@@ -58,7 +58,7 @@ const isOpen = async (req, res) => {
         console.log(recipient);
         res.status(200).send({ message: "update" });
     } catch (error) {
-        // console.log(error.message);
+        console.log(error.message);
         res.status(500).send({
             error: "error",
         });
@@ -71,7 +71,7 @@ const getAllRecipients = async (req, res) => {
         const recipients = await Recipient.find();
         res.status(200).json(recipients);
     } catch (error) {
-        // console.log(error.message);
+        console.log(error.message);
         res.status(500).send({
             error: "there is an error",
         });
