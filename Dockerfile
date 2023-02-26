@@ -2,10 +2,10 @@
 FROM node:lts-alpine
 
 # Set the working directory in the container
-WORKDIR ./
+WORKDIR .
 
 # Copy the application files into the working directory
-COPY . ./
+COPY . .
 
 # Install the application dependencies
 RUN npm install
