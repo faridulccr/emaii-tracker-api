@@ -11,7 +11,8 @@ COPY . ./
 RUN npm install
 
 # Expose port 8080 for TCP traffic
-EXPOSE 8080/tcp
+# Expose port 3000
+EXPOSE 3000
 
 # Define the entry point for the container
 CMD ["npm", "start"]
