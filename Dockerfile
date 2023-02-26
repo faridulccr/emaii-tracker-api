@@ -2,7 +2,8 @@
 FROM node:19.6.1
 
 # Set the working directory in the container
-WORKDIR /usr/app
+RUN mkdir /app
+WORKDIR /app
 
 # Copy the package.json and package-lock.json files
 COPY ["package.json", "package-lock.json*", "./"]
