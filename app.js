@@ -5,7 +5,7 @@ require("./db");
 
 const bodyParser = require("body-parser");
 // routes
-const sentEmailRouter = require("./routers/recipient.route");
+const recipientRouter = require("./routers/recipient.route");
 const homeRouter = require("./routers/home.route");
 
 // create express server
@@ -33,9 +33,9 @@ app.use(bodyParser.json());
 app.use(express.static("views")); // for static file
 
 app.use("/", homeRouter);
-app.use("/recipient", sentEmailRouter);
-app.use("/recipient", sentEmailRouter);
-app.use("/recipient", sentEmailRouter);
+app.use("/recipient", recipientRouter);
+app.use("/recipient", recipientRouter);
+app.use("/recipient", recipientRouter);
 
 // route not found error
 app.use((req, res, next) => {
