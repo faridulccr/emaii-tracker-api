@@ -78,4 +78,22 @@ const getAllRecipients = async (req, res) => {
     }
 };
 
-module.exports = { sentEmailAndCreateRecipient, isOpen, getAllRecipients };
+// delete recipient
+const deleteRecipient = async (req, res) => {
+    try {
+        await Recipient.deleteOne({ id: req.params.id });
+
+        res.status(200).json({
+            message: "successfully deleted",
+        });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
+module.exports = {
+    sentEmailAndCreateRecipient,
+    isOpen,
+    getAllRecipients,
+    deleteRecipient,
+};

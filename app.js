@@ -34,8 +34,6 @@ app.use(express.static("views")); // for static file
 
 app.use("/", homeRouter);
 app.use("/recipient", recipientRouter);
-app.use("/recipient", recipientRouter);
-app.use("/recipient", recipientRouter);
 
 // route not found error
 app.use((req, res, next) => {
