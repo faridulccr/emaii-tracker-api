@@ -1,7 +1,7 @@
 // create an express server
 const express = require("express");
 const cors = require("cors");
-require("./db");
+// require("./db");
 
 const bodyParser = require("body-parser");
 // routes
