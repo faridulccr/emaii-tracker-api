@@ -60,8 +60,8 @@ const isOpen = async (req, res) => {
             to: process.env.ADMIN_EMAIL,
             subject: `Your Email is Opened.`,
             html: `<div><p><strong>${recipient.recipient}</strong> has opened your email.</p>
-                        <p>Email <strong> Subject</strong> is ${recipient.subject}</p>
-                        <p>Email <strong> Message</strong> is ${recipient.message}</p>
+                        <p><strong> Subject:</strong> ${recipient.subject}</p>
+                        <p><strong> Message:</strong> ${recipient.message}</p>
                     </div>`,
         };
         await transporter.sendMail(mailOptions);
