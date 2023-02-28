@@ -30,8 +30,8 @@ const sentEmailAndCreateRecipient = async (req, res) => {
         const newRecipient = new Recipient({
             id: recipientId,
             status: "Sent",
-            statusTime: new Date().toLocaleString(),
-            sentTime: new Date().toLocaleString(),
+            statusTime: new Date(),
+            sentTime: new Date(),
             recipient,
             subject,
             message,
@@ -48,11 +48,10 @@ const sentEmailAndCreateRecipient = async (req, res) => {
 
 // to check email has been opened or not by img tracking
 const isOpen = async (req, res) => {
-    const timeOpened = new Date().toLocaleString();
     try {
         const recipient = await Recipient.findOne({ id: req.params.id });
         recipient.status = "Opened";
-        recipient.statusTime = timeOpened;
+        recipient.statusTime = new Date();
         // to restore the user to mongoDB
         await recipient.save();
         console.log(recipient);
