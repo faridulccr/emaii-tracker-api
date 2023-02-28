@@ -2,19 +2,18 @@ const nodemailer = require("nodemailer");
 const { v4: uuidv4 } = require("uuid");
 const Recipient = require("../models/recipient.model");
 
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.ADMIN_EMAIL,
+        pass: process.env.ADMIN_PASS,
+    },
+});
+
 // to send email to user
 const sentEmailAndCreateRecipient = async (req, res) => {
     try {
         const { adminEmail, recipient, subject, message } = req.body;
-
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.ADMIN_EMAIL,
-                pass: process.env.ADMIN_PASS,
-            },
-        });
-
         const recipientId = uuidv4();
         const trackingUrl = `${process.env.HOSTING_URL}/recipient/is-open/${recipientId}`;
 
@@ -54,7 +53,18 @@ const isOpen = async (req, res) => {
         recipient.statusTime = new Date();
         // to restore the user to mongoDB
         await recipient.save();
-        console.log(recipient);
+        // console.log(recipient);
+
+        const mailOptions = {
+            from: process.env.ADMIN_EMAIL,
+            to: process.env.ADMIN_EMAIL,
+            subject: `Your Email is Opened.`,
+            html: `<div><p><strong>${recipient.recipient}</strong> has opened your email.</p>
+                        <p>Email <strong> Subject</strong> is ${recipient.subject}</p>
+                        <p>Email <strong> Message</strong> is ${recipient.message}</p>
+                    </div>`,
+        };
+        await transporter.sendMail(mailOptions);
         res.status(200).send({ message: "update" });
     } catch (error) {
         console.log(error.message);
