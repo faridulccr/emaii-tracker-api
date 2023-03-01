@@ -3,6 +3,8 @@ const { v4: uuidv4 } = require("uuid");
 const Recipient = require("../models/recipient.model");
 
 const transporter = nodemailer.createTransport({
+    port: 465,
+    secure:true,
     service: "gmail",
     auth: {
         user: process.env.ADMIN_EMAIL,
